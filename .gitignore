@@ -1,0 +1,16 @@
+# Lua rocks / build
+*.luac
+*.lock
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.tags
+.tags1
+
+# Neovim
+plugin/packer_compiled.lua
+.nvim/
+.cache/
