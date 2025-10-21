@@ -14,3 +14,6 @@ Thumbs.db
 plugin/packer_compiled.lua
 .nvim/
 .cache/
+
+# scripts
+scripts/release.sh
