@@ -202,7 +202,7 @@ local function setup_cli(opts)
 
   delete_command("SpecKitCLI")
   vim.api.nvim_create_user_command("SpecKitCLI", function(cmd_opts)
-    local args = {}
+    local args
     if cmd_opts.args ~= "" then
       args = deepcopy(cmd_opts.fargs)
     else
