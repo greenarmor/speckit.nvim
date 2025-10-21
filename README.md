@@ -189,15 +189,6 @@ Leave any field out to use the defaults shown above.
 
 See `lua/speckit/recipes/ai.lua` for details and Telescope integration helpers.
 
-## Versioning & Releases
-
-Speckit follows semantic versioning and publishes releases from annotated
-git tags. Use the helper script to cut a release locally:
-
-```bash
-./scripts/release.sh 1.2.3
-```
-
 The script ensures the working tree is clean, creates the `v1.2.3` tag, pushes
 it to `origin`, and—when the [GitHub CLI](https://cli.github.com/) is
 available—triggers `gh release create` with generated notes. Pushing the tag
