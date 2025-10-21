@@ -137,6 +137,40 @@ With the **ai** kit enabled, you get commands and keymaps:
 - `:AIReviewOpen` / `:AIReviewClose` — open/close `diffview.nvim`
 - `:AIStageHunk` / `:AIResetHunk` — via `gitsigns.nvim`
 
+## Spec Kit Workflow Helpers
+
+Recreate the Spec Kit quick start loop without leaving Neovim:
+
+- `:SpecKitInit [project …]` — opens a terminal split and runs
+  `uvx --from git+https://github.com/github/spec-kit.git specify init …` for you.
+- `:SpecKitCLI [args…]` — run any `specify` sub-command in-place (defaults to
+  `--help` when called without arguments).
+- `:SpecKitSpecify`, `:SpecKitPlan`, `:SpecKitTasks` — send `/speckit.*` prompts
+  to your default AI terminal (requires the **ai** kit / `ai-terminals.nvim`).
+
+Customize the workflow behaviour during setup:
+
+```lua
+require("speckit").setup({
+  workflow = {
+    cli = {
+      cmd = { "uvx", "--from", "/path/to/spec-kit", "specify" },
+      default_script = "sh",
+      height = 12,
+    },
+    prompts = {
+      target = "aider",
+      commands = {
+        specify = { description = "Send spec prompt" },
+        plan = { target = "claude" },
+      },
+    },
+  },
+})
+```
+
+Leave any field out to use the defaults shown above.
+
 > **Note**
 > The **ai** kit automatically pulls in the **git** kit so you get the supporting plugins and mappings without having to enable both manually.
 

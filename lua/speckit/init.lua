@@ -10,7 +10,7 @@ local _kits = {
   ai = require("speckit.kits.ai"),
 }
 
-local defaults = { overrides = {} }
+local defaults = { overrides = {}, workflow = {} }
 M._opts = vim.deepcopy(defaults)
 M._extra_overrides = {}
 
@@ -59,6 +59,10 @@ end
 function M.setup(opts)
   M._opts = util.deep_merge(vim.deepcopy(defaults), opts or {})
   M._extra_overrides = {}
+  local ok, workflow = pcall(require, "speckit.workflow")
+  if ok then
+    workflow.setup(M._opts.workflow)
+  end
   return M
 end
 
