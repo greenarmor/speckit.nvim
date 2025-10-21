@@ -5,6 +5,9 @@
   <a href="https://github.com/greenarmor/speckit.nvim/actions">
     <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/greenarmor/speckit.nvim/ci.yml?branch=main&label=CI&logo=github">
   </a>
+  <a href="https://github.com/greenarmor/speckit.nvim/releases">
+    <img alt="GitHub release" src="https://img.shields.io/github/v/release/greenarmor/speckit.nvim?display_name=tag&sort=semver">
+  </a>
   <a href="https://github.com/greenarmor/speckit.nvim/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg">
   </a>
@@ -185,6 +188,21 @@ Leave any field out to use the defaults shown above.
 > Set the `SPECKIT_CODEX_CMD` environment variable to point at your preferred Codex/OpenAI CLI invocation (defaults to the `openai` CLI with `gpt-4o-mini`).
 
 See `lua/speckit/recipes/ai.lua` for details and Telescope integration helpers.
+
+## Versioning & Releases
+
+Speckit follows semantic versioning and publishes releases from annotated
+git tags. Use the helper script to cut a release locally:
+
+```bash
+./scripts/release.sh 1.2.3
+```
+
+The script ensures the working tree is clean, creates the `v1.2.3` tag, pushes
+it to `origin`, and—when the [GitHub CLI](https://cli.github.com/) is
+available—triggers `gh release create` with generated notes. Pushing the tag
+also activates the **Release** GitHub Actions workflow, which creates a release
+with auto-generated notes when the tag lands on GitHub.
 
 ## License
 MIT
