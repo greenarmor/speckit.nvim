@@ -117,7 +117,7 @@ require("lazy").setup({
   })
   ```
 
-If you vendor this as a plugin spec entry:
+If you get from vendor plugin spec entry:
 ```lua
 require("lazy").setup({
   { "greenarmor/speckit.nvim" }, -- after you push to GitHub
